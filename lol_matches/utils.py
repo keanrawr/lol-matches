@@ -3,6 +3,6 @@ def safe_get(dict, *args):
     for arg in args:
         try:
             value = value.get(arg)
-        except:
+        except AttributeError:
             return None
     return value
