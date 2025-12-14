@@ -1,7 +1,9 @@
 from traceback import print_exc
+
 from riotwatcher import LolWatcher
-from lol_matches.utils import safe_get
+
 from lol_matches.settings import ScraperSettings
+from lol_matches.utils import safe_get
 
 settings = ScraperSettings()
 

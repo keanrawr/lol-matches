@@ -1,8 +1,10 @@
-import os
 import json
-import boto3
+import os
 from pathlib import Path
 from traceback import print_exc
+
+import boto3
+
 from lol_matches.settings import ScraperSettings
 
 
