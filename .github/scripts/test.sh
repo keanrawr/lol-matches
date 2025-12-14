@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-poetry run tox
+uv run pytest -rP -v --ignore=databricks
