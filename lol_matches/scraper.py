@@ -17,14 +17,14 @@ class MatchScraper:
 
         try:
             self.watcher = LolWatcher(self.api_key)
-        except:
+        except Exception as _:
             print_exc()
 
     def get_match(self, match_id: int):
         match_id = f"{self.region_prefix}{match_id}"
         try:
             match = self.watcher.match.by_id(self.region, match_id)
-        except:
+        except Exception as _:
             match = {"message": "error"}
             print_exc()
         return match
@@ -77,7 +77,7 @@ class MatchScraper:
             "teamId",
             "goldEarned",
         ]
-        parsed = list()
+        parsed = []
 
         for part in participants:
             part_id = {"participantId": part["participantId"]}
@@ -89,7 +89,7 @@ class MatchScraper:
     def parse_teams(match: dict):
         base_info = MatchScraper.parse_base_info(match)
         teams = match["info"]["teams"]
-        parsed = list()
+        parsed = []
 
         for team in teams:
             team_id = {"teamId": team["teamId"], "win": team["win"]}

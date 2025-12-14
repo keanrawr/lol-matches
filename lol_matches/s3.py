@@ -63,14 +63,14 @@ class S3Helper:
             paginator = self.client.get_paginator("list_objects")
             pages = paginator.paginate(**list_params)
 
-            output = list()
+            output = []
             for page in pages:
                 objects = page.get("Contents")
                 output += [
                     obj.get("Key") for obj in objects if format in obj.get("Key")
                 ]
 
-            written = list()
+            written = []
             for i, path in enumerate(output):
                 out_name = f"{name}-{i}{format}"
                 with open(out_name, "wb") as f:
