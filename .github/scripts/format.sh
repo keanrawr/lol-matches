@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-poetry install
+uv sync
 
-poetry run black lol_matches --check
-poetry run black tests --check
+uv run ruff format --check
