@@ -1,4 +1,5 @@
 import os
+
 from lol_matches.s3 import S3Helper
 from lol_matches.settings import ScraperSettings
 
