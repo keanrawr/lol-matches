@@ -44,16 +44,12 @@ def main():
 
     s3, scraper = create_objects(region)
 
-    try:
-        while True:
-            try:
-                scrape_match(match_id, scraper, s3)
-            except Exception:
-                logging.error(f"Couldn't scrape match: {match_id}")
-            match_id += 1
-    except KeyboardInterrupt:
-        logging.info("Keyboard interrupt received. Stopping the scraper gracefully.")
-        print("Keyboard interrupt received. Exiting...")
+    while True:
+        try:
+            scrape_match(match_id, scraper, s3)
+        except Exception:
+            logging.error(f"Couldn't scrape match: {match_id}")
+        match_id += 1
 
 
 if __name__ == "__main__":
